@@ -1,0 +1,12 @@
+body{
+	background color: #fafafa;
+}
+.home-hero{
+	min-height: 350px;
+}
+.home-product{
+	min-height: 350px;
+}
+.home-service{
+	min-height: 350px;
+}
