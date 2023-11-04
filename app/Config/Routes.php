@@ -22,31 +22,39 @@ $routes->get('services', 'Services::index');
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
-	$routes->get('products', 'Products::index');
-	$routes->post('products', 'Products::store');
-	$routes->get('products/add', 'Products::add');
-	$routes->get('products/edit/(:num)', 'Products::edit/$1');
-	$routes->post('products/edit/(:num)', 'Products::update/$1');
+	$routes->group('category', static function ($routes) {
+		$routes->get('/', 'category::index');
+		$routes->post('/', 'category::store');
+		$routes->get('add', 'category::add');
+		$routes->get('edit/(:num)', 'category::edit/$1');
+		$routes->post('edit/(:num)', 'category::update/$1');
+	});
 
-	$routes->get('category', 'category::index');
-	$routes->post('category', 'category::store');
-	$routes->get('category/add', 'category::add');
-	$routes->get('category/edit/(:num)', 'category::edit/$1');
-	$routes->post('category/edit/(:num)', 'category::update/$1');
+	$routes->group('products', static function ($routes) {
+		$routes->get('/', 'Products::index');
+		$routes->post('/', 'Products::store');
+		$routes->get('add', 'Products::add');
+		$routes->get('edit/(:num)', 'Products::edit/$1');
+		$routes->post('edit/(:num)', 'Products::update/$1');
+	});
 
 	$routes->get('services', 'Services::index');
 
 	$routes->group('user', static function ($routes) {
-	    $routes->get('admin', 'Users::index');
-	    $routes->post('admin', 'Users::store');
-	    $routes->get('admin/add', 'Users::add');
-	    $routes->get('admin/edit/(:num)', 'Users::edit/$1');
-	    $routes->post('admin/edit/(:num)', 'Users::update/$1');
+		$routes->group('admin', static function ($routes) {
+		    $routes->get('/', 'Users::index');
+		    $routes->post('/', 'Users::store');
+		    $routes->get('add', 'Users::add');
+		    $routes->get('edit/(:num)', 'Users::edit/$1');
+		    $routes->post('edit/(:num)', 'Users::update/$1');
+	    });
 
-	    $routes->get('customers', 'Customers::index');
-	    $routes->post('customers', 'Customers::store');
-	    $routes->get('customers/add', 'Customers::add');
-	    $routes->get('customers/edit/(:num)', 'Customers::edit/$1');
-	    $routes->post('customers/edit/(:num)', 'Customers::update/$1');
+		$routes->group('customers', static function ($routes) {
+		    $routes->get('/', 'Customers::index');
+		    $routes->post('/', 'Customers::store');
+		    $routes->get('add', 'Customers::add');
+		    $routes->get('edit/(:num)', 'Customers::edit/$1');
+		    $routes->post('edit/(:num)', 'Customers::update/$1');
+	    });
 	});
 });
