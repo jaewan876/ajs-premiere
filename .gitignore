@@ -89,7 +89,7 @@ vendor/
 #-------------------------
 # Images
 #-------------------------
-public/images/
+public/images/*
 !public/images/.gitkeep
 
 #-------------------------
