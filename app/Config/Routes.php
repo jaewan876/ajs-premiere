@@ -8,8 +8,19 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get('login', 'Login::index');
+$routes->post('login', 'Login::handle');
 
-$routes->get('register', 'Register::index');
+$routes->get('signup', 'Register::index');
+$routes->post('signup', 'Register::handle');
+
+$routes->get('logout', function(){
+	session()->destroy();
+	return redirect()->to('login');
+});
+
+$routes->get('cart', function(){
+	echo "cart";
+});
 
 $routes->get('about-us', 'About::index');
 
@@ -19,7 +30,7 @@ $routes->get('products', 'Products::index');
 
 $routes->get('services', 'Services::index');
 
-$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static function ($routes) {
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth_admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
 	$routes->group('category', static function ($routes) {
@@ -57,4 +68,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static functio
 		    $routes->post('edit/(:num)', 'Customers::update/$1');
 	    });
 	});
+});
+
+$routes->group('customer', ['namespace' => 'App\Controllers\Customer', 'filter' => 'auth_customer'], static function ($routes) {
+	$routes->get('/', 'Dashboard::index');
 });
