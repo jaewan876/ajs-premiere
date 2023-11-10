@@ -21,7 +21,7 @@ class Register extends BaseController
             'title' => 'Register'
         ];
 
-        return view('auth/signup', $data);
+        return view('pages/auth/signup', $data);
     }
 
     public function handle()

@@ -24,7 +24,7 @@ class Login extends BaseController
             'title' => 'Login'
         ];
 
-        return view('auth/login', $data);
+        return view('pages/auth/login', $data);
     }
 
     public function handle()
