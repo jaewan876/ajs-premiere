@@ -12,6 +12,6 @@ class Products extends BaseController
             'title' => 'Products'
         ];
 
-        return view('index', $data);
+        return view('products/list', $data);
     }
 }
