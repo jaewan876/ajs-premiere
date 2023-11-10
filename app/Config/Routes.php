@@ -30,7 +30,7 @@ $routes->get('products', 'Products::index');
 
 $routes->get('services', 'Services::index');
 
-$routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth_admin'], static function ($routes) {
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
 	$routes->group('category', static function ($routes) {
