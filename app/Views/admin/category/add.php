@@ -20,7 +20,7 @@
     <!-- Form Section -->
     <div class="row">
         <div class="col-md-12">
-            <form method="put" action="<?= base_url('admin/category') ?>">
+            <form method="post" action="<?= base_url('admin/category') ?>">
                 <?= csrf_field() ?>
                 <input type="hidden" name="redirect_error" value="<?= current_url() ?>">
                 <input type="hidden" name="redirect_success" value="<?= base_url('admin/category') ?>">
