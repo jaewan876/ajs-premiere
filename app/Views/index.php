@@ -20,16 +20,20 @@
 		<div class="row">
 			<?php if (!empty($products)): ?>
 				<?php foreach ($products as $key => $product): ?>
-					<div class="col-md-3">
+					<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
 						
-						<div class="card" style="width: 18rem;">
+						<div class="card">
 							<div class="card-image" style="width: 100%; height: 180px; overflow-y: hidden;">
 								<img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>">
 							</div>
 							<div class="card-body">
 								<h5 class="card-title"><?= $product['name'] ?></h5>
-								<p class="card-text"><?= $product['description'] ?></p>
-								<button class="btn btn-primary">Add to cart</button>
+								<div class="d-flex align-items-center justify-content-between">
+									<span><strong>$<?= $product['price'] ?></strong></span>
+									<button class="btn btn-primary btn-sm" id="add_to_cart" data-id="<?= $product['product_id'] ?>">
+										Add to cart
+									</button>
+								</div>
 							</div>
 						</div>
 
