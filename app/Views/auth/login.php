@@ -10,21 +10,42 @@
             <!-- LOGIN FORM -->
             <form method="post" action="<?= base_url('login') ?>" class="login-form bg-light p-3">
                 <?= csrf_field() ?>
-                <div class="row g-3 mb-3">
+                <div class="row">
                     <div class="col-12">
                         <h4>Login</h4>
+                        <hr>
                         
                         <?php if(session()->has('error')): ?>
                             <span class="text-danger"><?= session()->get('error') ?></span>
                         <?php endif ?>
                     </div>
                     <div class="col-12">
-                        <label class="form-label" for="">Email</label>
-                        <input name="email" type="email" class="form-control" id="" aria-describedby="" placeholder="Enter email" value="<?= set_value('email') ?>" required>
+                        <div class="form-group">
+                            <label for="" class="form-label">
+                                Email
+                            </label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+                                <input class="form-control" name="email" type="email" placeholder="Enter email" value="<?= set_value('email') ?>" required>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="row g-3">
                     <div class="col-12">
-                        <label class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" placeholder="Password" required>
+                        <div class="form-group">
+                            <label for="" class="form-label">
+                                Password
+                            </label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="bi bi-key"></i>
+                                </span>
+                                <input class="form-control" name="password" type="password" placeholder="Enter password" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="form-control btn btn-primary">Log In</button>
