@@ -12,6 +12,6 @@ class Contact extends BaseController
             'title' => 'Contact Us'
         ];
 
-        return view('index', $data);
+        return view('pages/contact', $data);
     }
 }
