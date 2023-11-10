@@ -4,8 +4,17 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+use App\Models\CustomerModel;
+
 class Register extends BaseController
 {
+    protected $customerModel;
+
+    public function __construct()
+    {
+        $this->customerModel = new CustomerModel();
+    }
+    
     public function index()
     {
         $data = [
