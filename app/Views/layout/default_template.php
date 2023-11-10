@@ -24,9 +24,6 @@
                                 <a class="nav-link" href="<?= base_url('products') ?>" data-toggle="tab">Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('services') ?>" data-toggle="tab">Services</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="<?= base_url('about-us') ?>" data-toggle="tab">About</a>
                             </li>
                             <li class="nav-item">
@@ -36,14 +33,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= base_url('login') ?>" data-toggle="tab">Login</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('signup') ?>" data-toggle="tab">Signup</a>
+                            </li>
                             <?php else: ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('customers') ?>" data-toggle="tab">Dashboard</a>
+                                <a class="nav-link" href="<?= base_url('admin') ?>" data-toggle="tab">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('logout') ?>" data-toggle="tab">Logout</a>
                             </li>
                             <?php endif ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('register') ?>" data-toggle="tab">Signup</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-secondary btn-sm" href="<?= base_url('cart') ?>" data-toggle="tab">
                                     <i class="bi bi-cart"></i> 0
