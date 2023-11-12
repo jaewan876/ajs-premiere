@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="container">
+<div class="container py-5">
 
 	<div class="row align-items-center justify-content-center mt-5">
         <div class="col-xl-4 col-lg-6 col-md-6 bg-light">
