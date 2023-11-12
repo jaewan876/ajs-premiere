@@ -44,12 +44,12 @@
                                 <a class="nav-link" href="<?= base_url('logout') ?>" data-toggle="tab">Logout</a>
                             </li>
                             <?php endif ?>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-secondary btn-sm" href="<?= base_url('cart') ?>" data-toggle="tab">
-                                    <i class="bi bi-cart"></i> 0
-                                </a>
-                            </li>
                         </ul>
+                        <div class="d-flex">
+                            <a class="btn btn-sm btn-light" href="<?= base_url('cart') ?>">
+                                <i class="bi bi-cart"></i> <span id="cart_count"><strong>0</strong></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -76,5 +76,6 @@
 
 	<!-- Bootstrap Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="<?= base_url('assets/js/cart.js') ?>"></script>
 </body>
 </html>
