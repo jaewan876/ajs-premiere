@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="container">
+<div class="container py-5">
 
 	<div class="row d-flex align-items-center justify-content-center mt-5">
         <div class="col-xl-4 col-lg-6 col-md-6 bg-light">
@@ -27,13 +27,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Firstname</label>
-                            <input name="firstname" type="text" class="form-control" placeholder="Firstname" required>
+                            <input name="firstname" type="text" class="form-control" placeholder="" required>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label class="form-label">Lastname</label>
-                            <input class="form-control" name="lastname" type="text" placeholder="Lastname" required>
+                            <input class="form-control" name="lastname" type="text" placeholder="" required>
                         </div>
                     </div>  
                 </div>
@@ -41,7 +41,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label class="form-label">Email</label>
-                            <input class="form-control" name="email" type="email" placeholder="Enter email" value="<?= set_value('email') ?>" required>
+                            <input class="form-control" name="email" type="email" placeholder="" value="<?= set_value('email') ?>" required>
                         </div>
                     </div> 
                 </div>
@@ -49,7 +49,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label class="form-label">Password</label>
-                            <input class="form-control" name="password" type="password" placeholder="Password" required>
+                            <input class="form-control" name="password" type="password" placeholder="" required>
                         </div>
                     </div>                    
                 </div>
@@ -57,7 +57,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label class="form-label">Confirm Password</label>
-                            <input class="form-control" name="password_confirm" type="password" placeholder="Password" required>
+                            <input class="form-control" name="password_confirm" type="password" placeholder="" required>
                         </div>
                     </div>  
                 </div>
