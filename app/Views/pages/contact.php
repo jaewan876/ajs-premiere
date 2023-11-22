@@ -42,15 +42,17 @@
         <div class="col-md-6">
             <h4>Get in touch</h4>
             <table class="table table-borderless">
-                <tbody><tr>
-                    <td><i class="bi bi-envelope-at"></i></td>
-                    <td>email@gmail.com</td>
-                </tr>
-                <tr>
-                    <td><i class="bi bi-telephone"></i></td>
-                    <td>876-484-3388</td>
-                </tr>
-            </tbody></table>
+                <tbody>
+                    <tr>
+                        <td><i class="bi bi-envelope-at"></i></td>
+                        <td>email@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><i class="bi bi-telephone"></i></td>
+                        <td>876-484-3388</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 </div>
