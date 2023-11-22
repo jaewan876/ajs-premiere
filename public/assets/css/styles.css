@@ -12,11 +12,8 @@ body{
 }
 
 .product-card{
-
-}
-
-.product-image{
-	object-fit: cover;
+	width: 100%;
+	min-height: 250px;
 }
 
 .card-image{
@@ -26,5 +23,5 @@ body{
 }
 
 .card-image img{
-	object-fit: contain;
+	object-fit: cover;
 }
