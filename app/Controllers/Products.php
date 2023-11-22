@@ -27,4 +27,16 @@ class Products extends BaseController
 
         return view('pages/products/list', $data);
     }
+
+    public function show($id = null)
+    {
+        $product = $this->productModel->find($id);
+
+        $data = [
+            'title' => $product['name'] ?? 'Not Available',
+            'product' => $product,
+        ];
+
+        return view('pages/products/view', $data);
+    }
 }
