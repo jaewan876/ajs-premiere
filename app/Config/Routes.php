@@ -18,15 +18,17 @@ $routes->get('logout', function(){
 	return redirect()->to('login');
 });
 
-$routes->get('cart', function(){
-	echo "cart";
-});
+$routes->get('cart', 'Cart::index');
 
 $routes->get('about-us', 'About::index');
-
 $routes->get('contact-us', 'Contact::index');
 
-$routes->get('products', 'Products::index');
+$routes->group('products', static function ($routes) {
+	$routes->get('/', 'Products::index');
+	$routes->get('(:num)', 'Products::show/$1');
+});
+
+// $routes->get('products', 'Products::index');
 
 $routes->get('services', 'Services::index');
 
