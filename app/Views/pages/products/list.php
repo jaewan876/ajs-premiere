@@ -5,35 +5,61 @@
 <div class="container">
 
 	<section class="py-4">
-		<h1>
-			<?= $title ?>
-		</h1>
+		<div class="d-flex justify-content-between py-4">
+	        <div class="d-flex align-items-center">
+	            <!--  -->
+	            <nav aria-label="breadcrumb">
+			        <ol class="breadcrumb">
+			            <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+			            <li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
+			        </ol>
+			    </nav>
+	        </div>
+	        <div class="">
+	            <!-- controls -->
+	            <form action="" method="get">
+	            	<div class="input-group">
+		            	<input type="search" name="search" class="form-control search-product" placeholder="Search"> 
+		            	<button class="btn btn-success">Go</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
 	</section>
 
-	<div class="row">
-		<?php if (!empty($products)): ?>
-			<?php foreach ($products as $key => $product): ?>
-				<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
-					
-					<div class="card">
-						<div class="card-image" style="">
-							<img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>" loading="lazy">
+	<section class="row">
+		<div class="col">
+			<div class="row">
+				<?php if (!empty($products)): ?>
+					<?php foreach ($products as $key => $product): ?>
+						<div class="col-sm-6 col-md-6 col-lg-4 mb-3">
+							<a class="text-decoration-none" href="<?= base_url('products/'.$product['product_id']) ?>">
+								<div class="card product-card">
+									<div class="card-image" style="">
+										<img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>" loading="lazy">
+									</div>
+									<div class="card-body">
+										<h5 class="card-title"><?= $product['name'] ?></h5>
+										<div class="d-flex align-items-center justify-content-between">
+											<span><strong>$<?= $product['price'] ?></strong></span>
+											<button class="btn btn-warning btn-sm" id="add_to_cart" data-id="<?= $product['product_id'] ?>">
+												Add to cart
+											</button>
+										</div>
+									</div>
+								</div>
+							</a>
 						</div>
-						<div class="card-body">
-							<h5 class="card-title"><?= $product['name'] ?></h5>
-							<div class="d-flex align-items-center justify-content-between">
-								<span><strong>$<?= $product['price'] ?></strong></span>
-								<button class="btn btn-primary btn-sm" id="add_to_cart" data-id="<?= $product['product_id'] ?>">
-									Add to cart
-								</button>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			<?php endforeach ?>
-		<?php endif ?>
-	</div>
+					<?php endforeach ?>
+				<?php endif ?>
+			</div>
+		</div>
+		<div class="col-3 bg-light">
+			<aside>
+                Sidebar
+            </aside>
+		</div>
+	</section>
 </div>
 
 <?= $this->endSection() ?>
