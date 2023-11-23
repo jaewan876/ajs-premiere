@@ -11,7 +11,7 @@
 					<span class="text-primary">PRINTING</span>
 				</h1>
 				<p class="text-center text-md-start">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis accusantium quasi corporis provident ad hic quae, reiciendis consequatur distinctio labore odit, esse alias voluptates non.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis accusantium quasi corporis provident ad hic quae, reiciendis consequatur distinctio labore odit, esse alias voluptates.
 				</p>
 				<div class="text-center text-md-start">
 					<a class="btn btn-success btn-lg fw-bold" href="<?= base_url('products') ?>">
