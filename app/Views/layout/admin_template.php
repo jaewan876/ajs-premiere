@@ -20,7 +20,10 @@
                     <div class="collapse navbar-collapse" id="home-nav">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('admin/dashboard') ?>" data-toggle="tab">Dashboard</a>
+                                <a class="nav-link" href="<?= base_url('admin') ?>" data-toggle="tab">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('admin/orders') ?>" data-toggle="tab">Orders</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= base_url('admin/products') ?>" data-toggle="tab">Products</a>
