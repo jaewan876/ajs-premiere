@@ -32,7 +32,7 @@
 			<div class="row">
 				<?php if (!empty($products)): ?>
 					<?php foreach ($products as $key => $product): ?>
-						<div class="col-sm-6 col-md-6 col-lg-4 mb-3">
+						<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
 							<a class="text-decoration-none" href="<?= base_url('products/'.$product['product_id']) ?>">
 								<div class="card product-card">
 									<div class="card-image" style="">
@@ -53,11 +53,6 @@
 					<?php endforeach ?>
 				<?php endif ?>
 			</div>
-		</div>
-		<div class="col-3 bg-light">
-			<aside>
-                Sidebar
-            </aside>
 		</div>
 	</section>
 </div>
