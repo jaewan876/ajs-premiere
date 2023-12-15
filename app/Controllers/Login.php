@@ -68,7 +68,7 @@ class Login extends BaseController
                         'customer_id' => $customer[0]['customer_id'],
                         'email' => $customer[0]['email'],
                         'firstname' => $customer[0]['firstname'],
-                        'lastname' => $customer[0]['firstname'],
+                        'lastname' => $customer[0]['lastname'],
                         'role' => $customer[0]['type'],
                         'isCustomer' => true,
                         'isLoggedIn' => true,
@@ -76,7 +76,7 @@ class Login extends BaseController
 
                     $this->session->set($user_session);
 
-                    return redirect()->to('customer');
+                    return redirect()->to('account');
                 }
                else
                {
