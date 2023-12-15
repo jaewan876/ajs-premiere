@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between py-4">
         <div class="d-flex align-items-center">
             <!--  -->
-            <a class="me-3" href="<?= base_url('admin/user/customers') ?>">
+            <a class="me-3" href="<?= base_url('admin/user/admin') ?>">
                 <i class="bi bi-arrow-left"></i>
             </a>
             <h4 class="mb-0"><?= $title ?></h4>
