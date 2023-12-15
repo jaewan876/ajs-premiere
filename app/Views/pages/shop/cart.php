@@ -17,15 +17,16 @@
 				<th>Qty</th>
 				<th>Total</th>
 				<tbody>
+					<?php foreach ($items as $key => $value): ?>
 					<tr>
-						<td>gg</td>
-						<td>10</td>
+						<td><?= $value['item_id'] ?></td>
+						<td><?= $value['item_price'] ?></td>
 						<td scope="1">
 							<div class="input-group">
 								<button class="btn">
 									<i class="bi bi-plus"></i>
 								</button>
-								<input class="text-center" type="number" size="5" value="1" min="1" max="10" readonly>
+								<input class="text-center" type="number" size="5" value="<?= $value['item_qty'] ?>" min="1" max="10" readonly>
 								<button class="btn">
 									<i class="bi bi-dash"></i>
 								</button>
@@ -34,14 +35,15 @@
 								<button class="btn btn-light">
 									<i class="bi bi-plus"></i>
 								</button>
-								<input class="text-center" type="number" size="5" value="1" min="1" readonly>
+								<input class="text-center" type="number" size="5" value="<?= $value['item_qty'] ?>" min="1" readonly>
 								<button class="btn btn-light">
 									<i class="bi bi-dash"></i>
 								</button>
 							</div>
 						</td>
-						<td>10</td>
+						<td><?= $value['item_price'] * $value['item_qty'] ?></td>
 					</tr>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
