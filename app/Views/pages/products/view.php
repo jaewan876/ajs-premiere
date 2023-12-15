@@ -18,12 +18,7 @@
 	        </div>
 	        <div class="">
 	            <!-- controls -->
-	            <form action="" method="get">
-	            	<div class="input-group">
-		            	<input type="search" name="search" class="form-control search-product" placeholder="Search"> 
-		            	<button class="btn btn-success">Go</button>
-		            </div>
-	            </form>
+	            
 	        </div>
 	    </div>
 	</section>
@@ -33,23 +28,44 @@
 			<div class="row mb-5">
 				<div class="col">
 					<div class="row">
-						<div class="col-3">
-							<img src="<?= base_url($product['image']) ?>" alt="" width="100%" loading="lazy">
+						<div class="col-4">
+							<img src="<?= base_url($product['image']) ?>" alt="<?= $title ?>" width="100%" loading="lazy">
 						</div>
 						<div class="col">
 							<h1>
 								<?= $title ?>
 							</h1>
 							<div class="review-ratings mb-3">
-								<i class="bi bi-star-fill"></i> <span>10 Reviews</span>
+								<i class="bi bi-star-fill"></i> <span>0 Reviews</span>
 							</div>
-							<h5>
-								<span>$<?= $product['price'] ?></span>
-							</h5>
+							
+							<div class="mb-3">
+								<h5>
+									<span>$<?= $product['price'] ?></span>
+								</h5>
+							</div>
 
-							<p>
-								<?= $product['description'] ?>
-							</p>
+							<div class="mb-3">
+								<form method="post" action="<?= base_url('cart') ?>">
+									<input type="hidden" name="redirect_success" value="<?= current_url() ?>">
+									<input type="hidden" name="customer" value="<?= session()->get('customer_id') ?? "" ?>">
+									<input type="hidden" name="product" value="<?= $product['product_id'] ?>">
+									<input type="hidden" name="price" value="<?= $product['price'] ?? "" ?>">
+									<div class="input-group">
+										<input class="" type="number" name="quantity" min="1" max="10" value="1" required>
+										<button class="btn btn-warning">
+											Add to cart
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="">
+								<h4>Description</h4>
+								<p>
+									<?= $product['description'] ?>
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -61,9 +77,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-3 bg-light">
+		<div class="col-3">
 			<aside>
-                Sidebar
+                
             </aside>
 		</div>
 	</section>
