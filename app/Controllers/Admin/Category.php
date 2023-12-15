@@ -18,7 +18,7 @@ class Category extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'All Categories',
+            'title' => 'Categories',
             'categories' => $this->categoryModel->find(),
         ];
 
