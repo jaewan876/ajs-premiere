@@ -18,7 +18,7 @@ class Users extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'All Admins',
+            'title' => 'System Administrators',
             'users' => $this->userModel->find(),
         ];
 
