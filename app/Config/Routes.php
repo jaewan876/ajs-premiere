@@ -19,6 +19,8 @@ $routes->get('logout', function(){
 });
 
 $routes->get('cart', 'Cart::index');
+$routes->post('cart', 'Cart::store');
+$routes->get('cart/item', 'Cart::get_item');
 
 $routes->get('about-us', 'About::index');
 $routes->get('contact-us', 'Contact::index');
@@ -34,6 +36,8 @@ $routes->get('services', 'Services::index');
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth_admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
+
+	$routes->get('orders', 'Orders::index');
 
 	$routes->group('category', static function ($routes) {
 		$routes->get('/', 'category::index');
@@ -72,6 +76,16 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
 	});
 });
 
-$routes->group('customer', ['namespace' => 'App\Controllers\Customer', 'filter' => 'auth_customer'], static function ($routes) {
+$routes->group('account', ['namespace' => 'App\Controllers\Account', 'filter' => 'auth_customer'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
+
+	$routes->group('profile', static function ($routes) {
+		$routes->get('/', 'Profile::index');
+		$routes->post('email/(:num)', 'Profile::update_email/$1');
+		$routes->post('name', 'Profile::update_name');
+		$routes->post('password', 'Profile::update_password');
+	});
+
+	$routes->get('orders', 'Orders::index');
+	$routes->get('Settings', 'Settings::index');
 });
