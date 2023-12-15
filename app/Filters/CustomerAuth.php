@@ -46,5 +46,6 @@ class CustomerAuth implements FilterInterface
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
         //
+        // echo "customer";
     }
 }
