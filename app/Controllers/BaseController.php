@@ -35,7 +35,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['form', 'session', 'html', 'number', 'url', 'text', 'date'];
+    protected $helpers = ['form', 'session', 'html', 'number', 'url', 'text', 'date', 'cookie'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -64,5 +64,7 @@ abstract class BaseController extends Controller
         $this->validation =  \Config\Services::validation();
 
         $this->parser = \Config\Services::parser(); 
+
+        // $this->request = \Config\Services::request();
     }
 }
