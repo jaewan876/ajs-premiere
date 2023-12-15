@@ -18,7 +18,7 @@ class Customers extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'All Customers',
+            'title' => 'Customers',
             'customers' => $this->customerModel->find(),
         ];
 
