@@ -21,7 +21,7 @@ class Products extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'All Products',
+            'title' => 'Products',
             'products' => $this->productModel->find(),
         ];
 
