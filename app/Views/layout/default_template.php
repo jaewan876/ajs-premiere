@@ -30,27 +30,32 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= base_url('contact-us') ?>" data-toggle="tab">Contact</a>
                             </li>
-                            <?php if (! session()->get('isLoggedIn')): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('login') ?>" data-toggle="tab">Login</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i> <?= session()->get('firstname') ?? "" ?>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php if (! session()->get('isLoggedIn')): ?>
+                                        <li><a class="dropdown-item" href="<?= base_url('login') ?>">Login</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url('signup') ?>">Signup</a></li>
+                                    <?php else: ?>
+                                        <?php if (session()->get('isAdmin')): ?>
+                                            <li><a class="dropdown-item" href="<?= base_url('admin') ?>">Dashboard</a></li>
+                                        <?php else: ?>
+                                            <li><a class="dropdown-item" href="<?= base_url('account/profile') ?>">Profile</a></li>
+                                            <li><a class="dropdown-item" href="<?= base_url('account/orders') ?>">Orders</a></li>
+                                        <?php endif ?>                                        
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a></li>
+                                    <?php endif ?> 
+                                </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('signup') ?>" data-toggle="tab">Signup</a>
+                                <a class="nav-link btn-dark" href="<?= base_url('cart') ?>">
+                                    <i class="bi bi-cart"></i> <strong><span id="cart_count">0</span></strong>
+                                </a>
                             </li>
-                            <?php else: ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('admin') ?>" data-toggle="tab">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('logout') ?>" data-toggle="tab">Logout</a>
-                            </li>
-                            <?php endif ?>
                         </ul>
-                        <div class="d-flex">
-                            <a class="btn btn-sm btn-dark" href="<?= base_url('cart') ?>">
-                                <i class="bi bi-cart"></i> <span id="cart_count"><strong>0</strong></span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </nav>
