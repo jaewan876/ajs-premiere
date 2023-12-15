@@ -35,6 +35,7 @@ class Products extends BaseController
         $data = [
             'title' => $product['name'] ?? 'Not Available',
             'product' => $product,
+            'customer' => [],
         ];
 
         return view('pages/products/view', $data);
