@@ -47,7 +47,9 @@
 
 							<div class="mb-3">
 								<form method="post" action="<?= base_url('cart') ?>">
+									<input type="hidden" name="redirect" value="<?= current_url() ?>">
 									<input type="hidden" name="redirect_success" value="<?= current_url() ?>">
+									<input type="hidden" name="redirect_error" value="<?= base_url() . '?redirect =' . current_url() ?>">
 									<input type="hidden" name="customer" value="<?= session()->get('customer_id') ?? "" ?>">
 									<input type="hidden" name="product" value="<?= $product['product_id'] ?>">
 									<input type="hidden" name="price" value="<?= $product['price'] ?? "" ?>">
