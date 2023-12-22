@@ -33,23 +33,31 @@ class Cart extends BaseController
 
     public function store()
     {
-        $cartData = [];
+        $query = '';
+        $redirect_uri = '';
 
-        $cart_id = session()->get('cart_id') ?? null;
+        if (! session()->get('isLoggedIn')) {
+            // redirect to login
+
+            if($this->request->getPost('redirect')){
+                $query = $this->request->getPost('redirect');
+                $redirect_uri = base_url('login') . "?redirect=${query}";
+            }
+
+            return redirect()->to($redirect_uri);
+        }
+
+        $redirect_uri = $this->request->getPost('redirect_success');
+
         $customer_id = session()->get('customer_id') ?? null;
 
-        if($cart_id){
-            $cartData = ['cart_id' => $cart_id];
-        }
-
-        if($customer_id){
-            $cartData = ['customer_id' => $customer_id];
-        }
+        $cartData = ['customer_id' => $customer_id];
 
         $cart = $this->cartModel->where($cartData)->find(); // print_r($cart);
 
         if($cart){
             $cart_id = $cart[0]['cart_id'];
+
             // check items
             $items = $this->cartItemModel->where(['cart_id' => $cart_id])->find();
 
@@ -86,11 +94,6 @@ class Cart extends BaseController
                 // insert item data
                 $this->cartItemModel->insert($addItem);  
             }
-            
-
-            $cart_session = ['cart_id' => $cart_id];
-
-            $this->session->set($cart_session);
         }
         else
         {
@@ -113,12 +116,24 @@ class Cart extends BaseController
 
             // insert item data
              $this->cartItemModel->insert($addItems);
-
-            // TODO: create session or cookie data
-            $cart_session = ['cart_id' => $cart_id];
-
-            $this->session->set($cart_session);
         }
+
+        return redirect()->to($redirect_uri);
+    }
+
+    public function update($id = null)
+    {
+        //
+    }
+
+    public function delete($id = null)
+    {
+        //
+    }
+
+    public function remove($id = null)
+    {
+        $this->cartItemModel->where('item_id', $id)->delete();
 
         return redirect()->to($this->request->getPost('redirect_success'));
     }
