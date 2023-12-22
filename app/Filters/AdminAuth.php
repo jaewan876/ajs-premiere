@@ -25,7 +25,7 @@ class AdminAuth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(! session()->has('isAdmin'))
+        if(! session()->has('isLoggedIn') && !session()->has('isAdmin'))
         {
             return redirect()->to('login');
         }
@@ -47,5 +47,9 @@ class AdminAuth implements FilterInterface
     {
         //
         // echo "Admin";
+
+        if(!session()->has('isAdmin')){
+            return redirect()->to('/');
+        }
     }
 }
