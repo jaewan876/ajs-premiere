@@ -18,9 +18,17 @@ $routes->get('logout', function(){
 	return redirect()->to('login');
 });
 
+$routes->group('cart', static function ($routes) {
+	$routes->get('/', 'Cart::index');
+	$routes->post('/', 'Cart::store');
+	$routes->get('item', 'Cart::get_item');
+	$routes->post('remove/(:num)', 'Cart::remove/$1');
+});
 $routes->get('cart', 'Cart::index');
 $routes->post('cart', 'Cart::store');
 $routes->get('cart/item', 'Cart::get_item');
+
+$routes->get('checkout', 'Checkout::index');
 
 $routes->get('about-us', 'About::index');
 $routes->get('contact-us', 'Contact::index');
