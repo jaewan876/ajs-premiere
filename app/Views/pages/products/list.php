@@ -42,9 +42,6 @@
 										<h5 class="card-title"><?= $product['name'] ?></h5>
 										<div class="d-flex align-items-center justify-content-between">
 											<span><strong>$<?= $product['price'] ?></strong></span>
-											<button class="btn btn-warning btn-sm" id="add_to_cart" data-id="<?= $product['product_id'] ?>">
-												Add to cart
-											</button>
 										</div>
 									</div>
 								</div>
