@@ -56,61 +56,50 @@ class Login extends BaseController
             ];
 
             $user = $this->userModel->where($data)->find();
-            $customer = $this->customerModel->where($data)->find();
 
-            if($customer)
-            {
-               $isValid = password_verify($password, $customer[0]['password']);
-
-               if($isValid)
-               {
-                    $user_session = [
-                        'customer_id' => $customer[0]['customer_id'],
-                        'email' => $customer[0]['email'],
-                        'firstname' => $customer[0]['firstname'],
-                        'lastname' => $customer[0]['lastname'],
-                        'role' => $customer[0]['type'],
-                        'isCustomer' => true,
-                        'isLoggedIn' => true,
-                    ];
-
-                    $this->session->set($user_session);
-
-                    return redirect()->to('account');
-                }
-               else
-               {
-                  return redirect()->to('login')->withInput()->with('error', 'Unable to log you in. Please check your password.');
-               }
+            if(! $user){
+                $user = $this->customerModel->where($data)->find();
             }
 
             if($user)
             {
-               $isValid = password_verify($password, $user[0]['password']);
+                $password_check = password_verify($password, $user[0]['password']);
 
-               if($isValid)
-               {
+                if($password_check)
+                {
+                    $redirect_url = "admin";
+
                     $user_session = [
-                        'user_id' => $user[0]['user_id'],
+                        'role' => $user[0]['role'],
                         'email' => $user[0]['email'],
                         'firstname' => $user[0]['firstname'],
                         'lastname' => $user[0]['firstname'],
-                        'role' => $user[0]['role'],
-                        'isAdmin' => true,
                         'isLoggedIn' => true,
                     ];
 
+                    if($user[0]['role'] != 'admin'){
+                        $redirect_url = "account";
+                        $user_session['customer_id'] = $user[0]['customer_id'];
+                    }else{
+                        $user_session['user_id'] = $user[0]['user_id'];
+                        $user_session['isAdmin'] = true;
+                    }
+
                     $this->session->set($user_session);
 
-                    return redirect()->to('admin');
+                    if($this->request->getPost('redirect')){
+                        return redirect()->to($this->request->getPost('redirect'));
+                    }
+
+                    return redirect()->to($redirect_url);
                 }
                else
                {
-                  return redirect()->to('login')->withInput()->with('error', 'Unable to log you in. Please check your password.');
+                  return redirect()->to($this->request->getPost('redirect_error'))->withInput()->with('error', 'Unable to log you in. Please check your password.');
                }
             }
             
-            return redirect()->to('login')->withInput()->with('error', 'Login failed. Please check your credentials.');
+            return redirect()->to($this->request->getPost('redirect_error'))->withInput()->with('error', 'Login failed. Please check your credentials.');
         }
     }
 }
