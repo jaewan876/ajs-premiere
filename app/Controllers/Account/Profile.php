@@ -19,7 +19,7 @@ class Profile extends BaseController
     {
         $data = [
             'title' => 'Profile',
-            'user' => $this->customerModel->find(session()->get('customer_id'))
+            'user' => $this->customerModel->find(session()->get('customer_id')) ?? []
         ];
 
         return view('customer/profile', $data);
