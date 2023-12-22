@@ -71,6 +71,6 @@ class Filters extends BaseConfig
      */
     public array $filters = [
         'auth_admin' => ['before' => ['admin/*',]],
-        'auth_customer' => ['before' => ['customer/*',]],
+        'auth_customer' => ['before' => ['account/*',]],
     ];
 }
