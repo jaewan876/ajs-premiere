@@ -14,13 +14,14 @@
 			<table class="table">
 				<th class="th-lg">Product</th>
 				<th>Price</th>
-				<th>Qty</th>
+				<th>Quantity</th>
 				<th>Total</th>
+				<th></th>
 				<tbody>
 					<?php foreach ($items as $key => $value): ?>
 					<tr>
-						<td><?= $value['item_id'] ?></td>
-						<td><?= $value['item_price'] ?></td>
+						<td><?= $value['product_id'] ?></td>
+						<td><?= number_to_currency($value['item_price'], 'USD', 'en_US', 2) ?></td>
 						<td scope="1">
 							<div class="input-group">
 								<button class="btn">
@@ -31,17 +32,17 @@
 									<i class="bi bi-dash"></i>
 								</button>
 							</div>
-							<div class="d-flex align-items-center">
-								<button class="btn btn-light">
-									<i class="bi bi-plus"></i>
-								</button>
-								<input class="text-center" type="number" size="5" value="<?= $value['item_qty'] ?>" min="1" readonly>
-								<button class="btn btn-light">
-									<i class="bi bi-dash"></i>
-								</button>
-							</div>
 						</td>
-						<td><?= $value['item_price'] * $value['item_qty'] ?></td>
+						<td><?= number_to_currency($value['item_price'] * $value['item_qty'], 'USD', 'en_US', 2) ?></td>
+						<td>
+							<form method="post" action="<?= base_url('cart/remove/'.$value['item_id']) ?>">
+								<input type="hidden" name="redirect_success" value="<?= current_url() ?>">
+								<input type="hidden" name="redirect_error" value="<?= current_url() ?>">
+								<button class="btn text-danger" title="Delete">
+									<i class="bi bi-x-lg"></i>
+								</button>
+							</form>
+						</td>
 					</tr>
 					<?php endforeach ?>
 				</tbody>
