@@ -8,7 +8,7 @@
         <div class="col-xl-4 col-lg-6 col-md-6 bg-light">
 
             <!-- LOGIN FORM -->
-            <form method="post" action="<?= base_url('login') ?>" class="login-form bg-light p-3">
+            <form method="post" action="<?= current_url() ?>" class="login-form bg-light p-3">
                 <?= csrf_field() ?>
                 <div class="row">
                     <div class="col-12">
@@ -18,6 +18,8 @@
                         <?php if(session()->has('error')): ?>
                             <span class="text-danger"><?= session()->get('error') ?></span>
                         <?php endif ?>
+                        <input type="hidden" name="redirect" value="<?= $_GET['redirect'] ?? '' ?>">
+                        <input type="hidden" name="redirect_error" value="<?= current_url(true) ?>">
                     </div>
                     <div class="col-12">
                         <div class="form-group">
