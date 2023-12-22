@@ -25,7 +25,7 @@ class CustomerAuth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(! session()->has('isCustomer'))
+        if(! session()->has('isLoggedIn') && session()->has('isAdmin'))
         {
             return redirect()->to('login');
         }
@@ -47,5 +47,8 @@ class CustomerAuth implements FilterInterface
     {
         //
         // echo "customer";
+        if(session()->has('isAdmin')){
+            return redirect()->to('admin');
+        }
     }
 }
