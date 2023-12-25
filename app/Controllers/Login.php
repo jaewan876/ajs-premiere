@@ -61,12 +61,16 @@ class Login extends BaseController
                 $user = $this->customerModel->where($data)->find();
             }
 
+            // -- Debug
+            // print_r($user);
+
             if($user)
             {
                 $password_check = password_verify($password, $user[0]['password']);
 
                 if($password_check)
                 {
+                    echo "password";
                     $redirect_url = "admin";
 
                     $user_session = [
@@ -95,6 +99,7 @@ class Login extends BaseController
                 }
                else
                {
+                echo "failed";
                   return redirect()->to($this->request->getPost('redirect_error'))->withInput()->with('error', 'Unable to log you in. Please check your password.');
                }
             }
