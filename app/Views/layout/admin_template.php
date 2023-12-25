@@ -40,11 +40,20 @@
                                     <li><a class="dropdown-item" href="<?= base_url('admin/user/customers') ?>">Customers</a></li>
                                 </ul>
                             </li>
-                            <?php if (session()->get('isLoggedIn')): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('logout') ?>" data-toggle="tab">Logout</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i> <?= session()->get('firstname') ?? "" ?>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="<?= base_url('admin/settings/profile') ?>">Profile</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= base_url('logout') ?>" data-toggle="tab">Logout</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <?php endif ?>
                         </ul>
                     </div>
                 </div>
