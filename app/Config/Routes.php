@@ -24,21 +24,19 @@ $routes->group('cart', static function ($routes) {
 	$routes->get('item', 'Cart::get_item');
 	$routes->post('remove/(:num)', 'Cart::remove/$1');
 });
-$routes->get('cart', 'Cart::index');
-$routes->post('cart', 'Cart::store');
-$routes->get('cart/item', 'Cart::get_item');
 
-$routes->get('checkout', 'Checkout::index');
+$routes->group('checkout', static function ($routes) {
+	$routes->get('/', 'Checkout::index');
+	$routes->post('/', 'Checkout::create_order');
+});
 
 $routes->get('about-us', 'About::index');
 $routes->get('contact-us', 'Contact::index');
 
 $routes->group('products', static function ($routes) {
 	$routes->get('/', 'Products::index');
-	$routes->get('(:num)', 'Products::show/$1');
+	$routes->get('(:num)/(:segment)', 'Products::show/$1/$2');
 });
-
-// $routes->get('products', 'Products::index');
 
 $routes->get('services', 'Services::index');
 
@@ -81,6 +79,13 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
 		    $routes->get('edit/(:num)', 'Customers::edit/$1');
 		    $routes->post('edit/(:num)', 'Customers::update/$1');
 	    });
+	});
+
+	$routes->group('settings', static function ($routes) {
+		// $routes->get('/', 'Settings::index');
+		// $routes->post('/', 'Settings::store');
+		$routes->get('profile', 'Settings::update_profile');
+		// $routes->post('add', 'Settings::update_profile');
 	});
 });
 
