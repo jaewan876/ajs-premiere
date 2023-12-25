@@ -33,7 +33,7 @@
 				<?php if (!empty($products)): ?>
 					<?php foreach ($products as $key => $product): ?>
 						<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
-							<a class="text-decoration-none" href="<?= base_url('products/'.$product['product_id']) ?>">
+							<a class="text-decoration-none" href="<?= base_url('products/'.$product['product_id'].'/'.$product['slug']) ?>">
 								<div class="card product-card">
 									<div class="card-image" style="">
 										<img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>" loading="lazy">
