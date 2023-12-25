@@ -37,7 +37,7 @@ class Register extends BaseController
             ],
             'email' => [
                 'label' => 'Email',
-                'rules' => 'required|is_unique[customers.email]|max_length[255]'
+                'rules' => 'required|is_unique[customers.email]|is_unique[users.email]|max_length[255]'
             ],
             'password' => [
                 'label' => 'Password',
