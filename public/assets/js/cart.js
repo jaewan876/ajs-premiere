@@ -24,11 +24,31 @@ console.log(sessionStorage);
 function cart()
 {
 	getItems()
+	updateItem()
 }
 
 function getCart()
 {
 
+}
+
+function updateItem(){
+	const items = document.querySelectorAll('#cart_item_qty');
+
+	items.forEach(item => {
+		item.addEventListener('click', (ele) => {
+			console.log('click button', ele.currentTarget)
+		})
+	});
+
+	function minusButton(){
+		let number = 0
+		console.log('minus button')
+	}
+
+	function plusButton(){
+		let number = 0
+	}
 }
 
 async function getItems()
