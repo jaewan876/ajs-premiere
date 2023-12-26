@@ -2,6 +2,10 @@
 
 <?= $this->section('content') ?>
 
+<?php  
+	$limit = 100;
+?>
+
 <div class="container">
 
 	<section class="py-4">
@@ -53,12 +57,22 @@
 									<input type="hidden" name="customer" value="<?= session()->get('customer_id') ?? "" ?>">
 									<input type="hidden" name="product" value="<?= $product['product_id'] ?>">
 									<input type="hidden" name="price" value="<?= $product['price'] ?? "" ?>">
+									<?php if (session()->has('customer_id')): ?>
 									<div class="input-group">
-										<input class="" type="number" name="quantity" min="1" max="10" value="1" required>
+										<?php if (isset($product['limit']) && $product['limit'] > 0): ?>
+										<select name="quantity" id="" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+										<?php else: ?>
+										<input class="" name="quantity" type="number" min="1" max="<?= ($product['in_stock'] > 0?$product['in_stock']: 100) ?>" size="1" value="1" required>
+										<?php endif ?>
 										<button class="btn btn-warning">
 											Add to cart
 										</button>
 									</div>
+									<?php endif ?>
 								</form>
 							</div>
 
@@ -75,7 +89,9 @@
 			<div class="row">
 				<div class="col">
 					<h5>Customer reviews</h5>
+					<?php if (session()->has('customer_id')): ?>
 					<button class="btn btn-primary">Write review</button>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>
