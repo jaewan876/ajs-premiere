@@ -23,9 +23,42 @@ class Cart extends BaseController
 
     public function index()
     {
+        $items = [];
+        $subtotal = $total = $quantity = 0;
+
+        if (session()->has('customer_id')) {
+
+            $item_subtotal = $item_quantity = [];
+
+            $cart = $this->cartModel->where(['customer_id' => session()->get('customer_id')])->find();
+
+            if ($cart) {
+                $items = $this->cartItemModel->find_products(['cart_id' => $cart[0]['cart_id']]);
+
+                foreach ($items as $key => $value) {
+                    $item_subtotal[] = ($value['item_qty'] * $value['item_price']);
+                    $item_quantity[] = $value['item_qty'];
+                }
+            }
+            
+
+            // quantity
+            $quantity = array_sum($item_quantity);
+
+            // subtotal
+            $subtotal = array_sum($item_subtotal);
+
+            // total
+            // TODO: calculate (subtotal + tax) - discount
+            $total = array_sum($item_subtotal);
+        }
+
         $data = [
             'title' => 'Cart',
-            'items' => $this->cartItemModel->where([])->find(),
+            'items' => $items,
+            'quantity' => $quantity,
+            'subtotal' => $subtotal,
+            'total' => $total,
         ];
 
         return view('pages/shop/cart', $data);
@@ -76,7 +109,7 @@ class Cart extends BaseController
                     {
                         $addItem = [
                             'item_id' => $value['item_id'],
-                            'item_qty' => ($value['item_qty'] + $this->request->getPost('quantity')),
+                            'item_qty' => $this->request->getPost('quantity'),
                         ];
                     }
                 }
@@ -123,16 +156,39 @@ class Cart extends BaseController
 
     public function update($id = null)
     {
-        //
+        if ($id != null) {
+            $data = [
+                'item_id' => $id,
+                'item_qty' => $this->request->getPost('item_qty'),
+                'item_price' => $this->request->getPost('item_price'),
+            ];
+
+            $this->cartItemModel->save($data);
+        }
+
+        return redirect()->to($this->request->getPost('redirect_success'));
     }
 
-    public function delete($id = null)
+    public function update_payment($id = null)
     {
-        //
+        if ($id != null) {
+            $data = [
+                'cart_id' => $id,
+                'payment_method' => $this->request->getPost('payment_method'),
+            ];
+
+            $this->cartModel->save($data);
+        }
+
+        return redirect()->to($this->request->getPost('redirect_success'));
     }
 
     public function remove($id = null)
     {
+        if ($id != null) {
+            // code...
+        }
+
         $this->cartItemModel->where('item_id', $id)->delete();
 
         return redirect()->to($this->request->getPost('redirect_success'));
@@ -142,22 +198,27 @@ class Cart extends BaseController
     {
         $qty = 0;
         $total = 0;
-        $item = [];
+        $items = [];
 
         if(session()->get('customer_id')){
             $cart = $this->cartModel->where(['customer_id' => session()->get('customer_id')])->find();
-            $item = $this->cartItemModel->where(['cart_id' => $cart[0]['cart_id']])->find();
 
-            foreach ($item as $key => $value) {
-                $qty += $value['item_qty'];
-                $total += ($value['item_price'] * $value['item_qty']);
-            }
+            if ($cart) {
+                $items = $this->cartItemModel->where(['cart_id' => $cart[0]['cart_id']])->find();
+
+                if ($items) {
+                    foreach ($items as $key => $value) {
+                        $qty += $value['item_qty'];
+                        $total += ($value['item_price'] * $value['item_qty']);
+                    }
+                }
+            } 
         }
 
         $data = [
             'quantity' => $qty,
             'total' => $total,
-            'items' => $item,
+            'items' => $items,
         ];
 
         return $this->response->setJSON($data);
