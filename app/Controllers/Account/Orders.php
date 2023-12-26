@@ -54,11 +54,10 @@ class Orders extends BaseController
         if($orders){
             $items = $this->orderItemModel->find_products(['order_id' => $order_id]);
         }
-        
 
         $data = [
-            'title' => 'Orders',
-            'order' => $orders,
+            'title' => "Order #{$order_id}",
+            'orders' => $orders,
             'items' => $items,
         ];
 
