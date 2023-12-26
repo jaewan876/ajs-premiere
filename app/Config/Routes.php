@@ -21,7 +21,7 @@ $routes->get('logout', function(){
 $routes->group('cart', static function ($routes) {
 	$routes->get('/', 'Cart::index');
 	$routes->post('/', 'Cart::store');
-	$routes->get('item', 'Cart::get_item');
+	$routes->get('items', 'Cart::get_items');
 	$routes->post('update/(:num)', 'Cart::update/$1');
 	$routes->post('update_payment/(:num)', 'Cart::update_payment/$1');
 	$routes->post('remove/(:num)', 'Cart::remove/$1');
@@ -45,7 +45,11 @@ $routes->get('services', 'Services::index');
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth_admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
-	$routes->get('orders', 'Orders::index');
+	$routes->group('orders', static function ($routes) {
+		$routes->get('/', 'Orders::index');
+		$routes->get('(:num)', 'Orders::show/$1');
+		$routes->post('(:num)', 'Orders::update/$1');
+	});
 
 	$routes->group('category', static function ($routes) {
 		$routes->get('/', 'category::index');
