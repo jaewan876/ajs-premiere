@@ -27,13 +27,11 @@ class Profile extends BaseController
 
     public function update_email($id = null)
     {
-        // $id = $this->request->getPost('customer_id');
-
         $rules = [
             'email' => [
                 'label' => 'Email',
                 'rules' => 'required|valid_email|is_unique[customers.email,customer_id,{id}]'
-            ],
+            ], 
         ];
 
         if(! $this->validate($rules))
