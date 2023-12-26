@@ -28,7 +28,7 @@ class Products extends BaseController
         return view('pages/products/list', $data);
     }
 
-    public function show($id = null)
+    public function show($id = null, $slug = null)
     {
         $product = $this->productModel->find($id);
 
