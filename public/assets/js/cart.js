@@ -13,23 +13,16 @@ if(add_to_cart){
 }
 
 // load cart
-cart();
+init_cart();
 
-function add_product(element){
-	console.log('add product', element.getAttribute('data-id'))
-}
-
-console.log(sessionStorage);
-
-function cart()
+function init_cart()
 {
 	getItems()
 	updateItem()
 }
 
-function getCart()
-{
-
+function add_product(element){
+	console.log('add product', element.getAttribute('data-id'))
 }
 
 function updateItem(){
