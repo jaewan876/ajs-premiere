@@ -22,6 +22,8 @@ $routes->group('cart', static function ($routes) {
 	$routes->get('/', 'Cart::index');
 	$routes->post('/', 'Cart::store');
 	$routes->get('item', 'Cart::get_item');
+	$routes->post('update/(:num)', 'Cart::update/$1');
+	$routes->post('update_payment/(:num)', 'Cart::update_payment/$1');
 	$routes->post('remove/(:num)', 'Cart::remove/$1');
 });
 
@@ -97,6 +99,11 @@ $routes->group('account', ['namespace' => 'App\Controllers\Account', 'filter' =>
 		$routes->post('email/(:num)', 'Profile::update_email/$1');
 		$routes->post('name', 'Profile::update_name');
 		$routes->post('password', 'Profile::update_password');
+	});
+
+	$routes->group('orders', static function ($routes) {
+		$routes->get('/', 'Orders::index');
+		$routes->get('(:num)', 'Orders::show/$1');
 	});
 
 	$routes->get('orders', 'Orders::index');
