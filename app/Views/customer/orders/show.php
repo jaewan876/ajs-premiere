@@ -25,10 +25,10 @@
 						<td colspan="1"><?= number_to_currency($value['item_total'] ?? 0, 'USD', 'en_US', 2) ?></td>
 					</tr>
 					<?php endforeach ?>
-					<tr>
+					<tr class="fw-bold">
 						<td colspan="4"></td>
 						<td>Subtotal</td>
-						<td><?= number_to_currency($subtotal ?? 0, 'USD', 'en_US', 2) ?></td>
+						<td><?= number_to_currency($orders[0]['order_subtotal'] ?? 0, 'USD', 'en_US', 2) ?></td>
 					</tr>
 					<tr>
 						<td colspan="4"></td>
@@ -40,10 +40,10 @@
 						<td>Discount</td>
 						<td><?= number_to_currency(0, 'USD', 'en_US', 2) ?></td>
 					</tr>
-					<tr>
+					<tr class="fw-bold">
 						<td colspan="4"></td>
 						<td>Total</td>
-						<td><?= number_to_currency($total ?? 0, 'USD', 'en_US', 2) ?></td>
+						<td><?= number_to_currency($orders[0]['order_total'] ?? 0, 'USD', 'en_US', 2) ?></td>
 					</tr>
 				</tbody>
 			</table>
