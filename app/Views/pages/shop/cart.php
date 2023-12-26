@@ -69,7 +69,7 @@
 					<?php endforeach ?>
 					
 					<?php if ($subtotal): ?>
-					<tr>
+					<tr class="fw-bold">
 						<td colspan="3"></td>
 						<td colspan="1">
 							Subtotal (<?= $quantity ?> <?= $quantity > 1 ? 'items':'item' ?>):
@@ -111,19 +111,16 @@
 				</table>
 			</div>
 			<div class="mb-3">
-				<a class="btn btn-light" href="<?= base_url('products') ?>">
+				<a class="btn btn-light mb-1" href="<?= base_url('products') ?>">
 					<i class="bi bi-arrow-left"></i> Continue Shopping
 				</a>
-			</div>
 
-			<?php if ($total): ?>
-			<div class="d-flex align-items-center">
-				<a class="btn btn-success" href="<?= base_url('checkout') ?>">
+				<?php if ($total): ?>
+				<a class="btn btn-success mb-1" href="<?= base_url('checkout') ?>">
 					Checkout <i class="bi bi-arrow-right"></i>
 				</a>
-			</div>
-			<?php endif ?>
-			
+				<?php endif ?>
+			</div>			
 		</div>
 	</section>
 </div>
