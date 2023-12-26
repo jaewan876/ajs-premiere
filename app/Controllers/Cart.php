@@ -186,7 +186,7 @@ class Cart extends BaseController
     public function remove($id = null)
     {
         if ($id != null) {
-            // code...
+            // TODO: show error page
         }
 
         $this->cartItemModel->where('item_id', $id)->delete();
@@ -194,7 +194,7 @@ class Cart extends BaseController
         return redirect()->to($this->request->getPost('redirect_success'));
     }
 
-    public function get_item()
+    public function get_items()
     {
         $qty = 0;
         $total = 0;
@@ -203,7 +203,7 @@ class Cart extends BaseController
         if(session()->get('customer_id')){
             $cart = $this->cartModel->where(['customer_id' => session()->get('customer_id')])->find();
 
-            if ($cart) {
+            if($cart) {
                 $items = $this->cartItemModel->where(['cart_id' => $cart[0]['cart_id']])->find();
 
                 if ($items) {
