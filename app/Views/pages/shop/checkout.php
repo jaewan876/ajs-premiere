@@ -40,7 +40,7 @@
 				</tbody>
 			</table>
 
-			<?php if (!empty($cart[0]['cart_id'])): ?>
+			<?php if (!empty($cart[0]['cart_id']) && $total): ?>
 			<div class="row">
 				<div class="col">
 					<h5>Payment Method</h5>
@@ -66,7 +66,6 @@
 
 		</div>
 		<div class="col-3">
-			<h5>Summary</h5>
 			<div>
 				<table class="table table-borderless">
 					<tbody>
@@ -117,7 +116,10 @@
 
 						<input type="hidden" name="subtotal" value="<?= $subtotal ?>">
 						<input type="hidden" name="total" value="<?= $total ?>">
-
+						
+						<a class="btn btn-light" href="<?= base_url('cart') ?>">
+							<i class="bi bi-arrow-left"></i> Back to cart
+						</a>
 						<button class="btn btn-success">
 							Place Order
 						</button>
@@ -127,7 +129,6 @@
 						<i class="bi bi-arrow-left"></i> Back to cart
 					</a>
 				<?php endif ?>
-				
 			</div>
 		</div>
 	</section>
