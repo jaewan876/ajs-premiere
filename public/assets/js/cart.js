@@ -46,7 +46,7 @@ function updateItem(){
 
 async function getItems()
 {
-	const url = '/cart/item'
+	const url = 'cart/items'
 	const response = await fetch(url);
     const data = await response.json();
 
