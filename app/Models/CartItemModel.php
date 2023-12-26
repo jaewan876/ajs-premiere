@@ -37,4 +37,14 @@ class CartItemModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function find_products($data = [])
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('*');
+        $builder->where($data);
+        $builder->join('products', "products.product_id = {$this->table}.product_id");
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
 }
