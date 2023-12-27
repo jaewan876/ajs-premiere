@@ -30,27 +30,25 @@
     <div class="row">
         <div class="col">
             <table class="table">
-                <th>Order ID</th>
-                <th>Items</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th>ID</th>
                 <th>Status</th>
+                <th>Quantity</th>
+                <th>Total</th>
                 <th>Updated</th>
-                <th>Action</th>
+                <th></th>
                 <tbody>
                     <?php if (!empty($orders)): ?>
                         <?php foreach ($orders as $key => $value): ?>
                         <tr>
+                            <td><?= '#'.$value['order_id'] ?></td>
                             <td>
-                                
+                                <span class="badge bg-light text-dark"><?= $value['order_status'] ?></span>
                             </td>
-                            <td><?= $value['order_id'] ?></td>
-                            <td><?= $value['price'] ?></td>
-                            <td><?= $value['order_id'] ?></td>
-                            <td><?= $value['order_id'] ?></td>
-                            <td><?= date('M d, Y', strtotime($value['updated_at'])) ?></td>
+                            <td><?= $value['order_quantity'] ?></td>
+                            <td><?= number_to_currency($value['order_total'], 'USD', 'en_US', 2) ?></td>
+                            <td><?= date('M d, Y', strtotime($value['order_updated_at'])) ?></td>
                             <td>
-                                <a class="btn btn-sm btn-ligh" href="<?= base_url('admin/orders/edit/'.$value['order_id']) ?>">
+                                <a class="btn btn-sm btn-ligh" href="<?= base_url('admin/orders/'.$value['order_id']) ?>">
                                     <i class="bi bi-pencil-square"></i> View
                                 </a>
                             </td>
