@@ -49,7 +49,7 @@ class Orders extends BaseController
     {
         $orders = $items = [];
 
-        $orders = $this->orderModel->where(['order_id' => $order_id])->find();
+        $orders = $this->orderModel->find($order_id);
 
         if($orders){
             $items = $this->orderItemModel->find_products(['order_id' => $order_id]);
