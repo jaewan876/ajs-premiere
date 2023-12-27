@@ -40,15 +40,15 @@ $routes->group('products', static function ($routes) {
 	$routes->get('(:num)/(:segment)', 'Products::show/$1/$2');
 });
 
-$routes->get('services', 'Services::index');
-
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth_admin'], static function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
 	$routes->group('orders', static function ($routes) {
 		$routes->get('/', 'Orders::index');
+		$routes->get('create', 'Orders::create');
 		$routes->get('(:num)', 'Orders::show/$1');
 		$routes->post('(:num)', 'Orders::update/$1');
+		$routes->post('status/(:num)', 'Orders::update_status/$1');
 	});
 
 	$routes->group('category', static function ($routes) {
@@ -66,8 +66,6 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
 		$routes->get('edit/(:num)', 'Products::edit/$1');
 		$routes->post('edit/(:num)', 'Products::update/$1');
 	});
-
-	$routes->get('services', 'Services::index');
 
 	$routes->group('user', static function ($routes) {
 		$routes->group('admin', static function ($routes) {
