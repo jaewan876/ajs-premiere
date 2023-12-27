@@ -49,8 +49,31 @@ class Orders extends BaseController
             'title' => 'Order #'.$order_id,
             'orders' => $orders,
             'items' => $items,
+            'payment' => $this->paymentModel->where(['order_id' => $order_id])->find(),
         ];
 
         return view('admin/orders/show', $data);
+    }
+
+    public function update_status($order_id = null)
+    {
+        if ($order_id == null) {
+            // show 404 page
+        }
+
+        $order_data = [
+            'order_id' => $order_id,
+            'order_status' => $this->request->getPost('status'),
+        ];
+
+        $status_data = [
+            'order_id' => $order_id,
+            'status_name' => $this->request->getPost('status'),
+        ];
+
+        $this->orderModel->save($order_data);
+        $this->statusModel->insert($status_data);
+
+        return redirect()->to($this->request->getPost('redirect_success'));
     }
 }
