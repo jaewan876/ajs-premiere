@@ -21,7 +21,7 @@
         </div>
         <div class="">
             <!-- controls -->
-            <a class="btn btn-sm btn-success" href="<?= base_url('admin/products/add') ?>"><i class="bi bi-pencil-square"></i> ADD</a>
+            <a class="btn btn-sm btn-success" href="<?= base_url('admin/orders/create') ?>" hidden><i class="bi bi-pencil-square"></i> ADD</a>
         </div>
     </div>
 
