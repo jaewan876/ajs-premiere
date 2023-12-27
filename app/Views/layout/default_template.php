@@ -13,6 +13,19 @@
 <body>
 	<div class="d-flex flex-column min-vh-100">
 		<header>
+            <div class="d-flex justify-content-between align-items-center bg-white">
+                <div class="p-1">
+                    <img src="<?= site_url('assets/images/static/logo.png') ?>" width="250">
+                </div>
+                <div class="">
+                <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-facebook-f"></i> </a>
+                    <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-twitter"></i> </a>
+                    <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-google"></i> </a>
+                    <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-instagram"></i> </a>
+                    <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-linkedin"></i> </a>
+                    <a href="" class="me-4 link-secondary text-decoration-none"> <i class="fab fa-github"></i> </a>
+                </div>
+            </div>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container">
                     <a class="navbar-brand brand-logo-text" href="<?= base_url() ?>">AJ'S PREMIERE PRINT</a>
@@ -68,7 +81,7 @@
         <!-- MAIN -->
 
         <!-- Footer -->
-        <footer class="text-center text-lg-start bg-white text-muted">
+        <footer class="text-center text-lg-start text-muted" style="background-color: #5AB9EA;">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                 <!-- Left -->
@@ -78,12 +91,12 @@
                 <!-- Left -->
                 <!-- Right -->
                 <div>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-facebook-f"></i> </a>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-twitter"></i> </a>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-google"></i> </a>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-instagram"></i> </a>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-linkedin"></i> </a>
-                    <a href="" class="me-4 link-secondary"> <i class="fab fa-github"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-facebook-f"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-twitter"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-google"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-instagram"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-linkedin"></i> </a>
+                    <a href="" class="me-4 link-light text-decoration-none"> <i class="fab fa-github"></i> </a>
                 </div>
                 <!-- Right -->
             </section>
@@ -100,27 +113,27 @@
                                 <i class="fas fa-gem me-3 text-secondary"></i>AJ's Premiere Print
                             </h6>
                             <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                AJ’S Premier Print is an online print and design company established in 2023. We are passionate about technological and digital trends that is intended to exceed customer’s satisfaction as to globally connect and infuse fashion design in this modern era.
                             </p>
                         </div>
                         <!-- Grid column -->
                         <!-- Grid column -->
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                             <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                            <p> <a href="#!" class="text-reset">Angular</a> </p>
-                            <p> <a href="#!" class="text-reset">React</a> </p>
-                            <p> <a href="#!" class="text-reset">Vue</a> </p>
-                            <p> <a href="#!" class="text-reset">Laravel</a> </p>
+                            <h6 class="text-uppercase fw-bold mb-4">custom hats</h6>
+                            <p> <a href="#!" class="text-reset">custom bags</a> </p>
+                            <p> <a href="#!" class="text-reset">pull-overs</a> </p>
+                            <p> <a href="#!" class="text-reset">sneaker designs</a> </p>
+                            <p> <a href="#!" class="text-reset">other</a> </p>
                         </div>
                         <!-- Grid column -->
                         <!-- Grid column -->
                         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                             <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p> <a href="#!" class="text-reset">Pricing</a> </p>
-                            <p> <a href="#!" class="text-reset">Settings</a> </p>
-                            <p> <a href="#!" class="text-reset">Orders</a> </p>
+                            <h6 class="text-uppercase fw-bold mb-4">About</h6>
+                            <p> <a href="#!" class="text-reset">Terms & conditions</a> </p>
+                            <p> <a href="#!" class="text-reset">orders</a> </p>
+                            <p> <a href="#!" class="text-reset">FAQ</a> </p>
                             <p> <a href="#!" class="text-reset">Help</a> </p>
                         </div>
                         <!-- Grid column -->
@@ -129,7 +142,7 @@
                             <!-- Links -->
                             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                             <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
-                            <p> <i class="fas fa-envelope me-3 text-secondary"></i> info@example.com </p>
+                            <p> <i class="fas fa-envelope me-3 text-secondary"></i> AJ'Spremier@example.com </p>
                             <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
                             <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
                         </div>
