@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="d-flex flex-column min-vh-100">
-		<header>
+		<header class="sticky-top">
             <div class="d-flex justify-content-between align-items-center bg-white">
                 <div class="p-1">
                     <img src="<?= site_url('assets/images/static/logo.png') ?>" width="250">
