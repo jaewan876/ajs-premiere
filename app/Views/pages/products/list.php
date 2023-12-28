@@ -27,7 +27,7 @@
 	    </div>
 	</section>
 
-	<section class="row">
+	<section class="row mb-5">
 		<div class="col">
 			<div class="row">
 				<?php if (!empty($products)): ?>
