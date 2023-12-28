@@ -25,12 +25,20 @@ class Dashboard extends BaseController
 
     public function index()
     {
+        $earnings = 0;
+
         $orders = $this->orderModel->find();
         $products = $this->productModel->find();
         $customers = $this->customerModel->find();
 
+        if ($orders) {
+            foreach ($orders as $key => $value) {
+                $earnings += $value['order_total'];
+            }
+        }
+
         $stats = [
-            'earnings' => 0,
+            'earnings' => $earnings,
             'orders' => count($orders) ?? 0,
             'products' => count($products) ?? 0,
             'customers' => count($customers) ?? 0,
