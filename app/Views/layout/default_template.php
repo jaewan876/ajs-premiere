@@ -55,6 +55,7 @@
                                         <?php if (session()->get('isAdmin')): ?>
                                             <li><a class="dropdown-item" href="<?= base_url('admin') ?>">Dashboard</a></li>
                                         <?php else: ?>
+                                            <li><a class="dropdown-item" href="<?= base_url('account') ?>">Home</a></li>
                                             <li><a class="dropdown-item" href="<?= base_url('account/profile') ?>">Profile</a></li>
                                             <li><a class="dropdown-item" href="<?= base_url('account/orders') ?>">Orders</a></li>
                                         <?php endif ?>                                        
