@@ -7,9 +7,9 @@
 	$add_to_cart_disabled = '';
 	$limit = $product['in_stock'];
 
-	if($product['max_per_order'] > 0 && $product['max_per_order'] < $product['in_stock']){
+	if($product['max_item_limit'] > 0 && $product['max_item_limit'] < $product['in_stock']){
 		// max amount per purchase
-		$limit = $product['max_per_order'];
+		$limit = $product['max_item_limit'];
 	}
 
 	if($product['in_stock'] < 5){
