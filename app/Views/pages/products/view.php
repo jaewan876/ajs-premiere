@@ -10,11 +10,6 @@
 	if($product['max_per_order'] > 0 && $product['max_per_order'] < $product['in_stock']){
 		// max amount per purchase
 		$limit = $product['max_per_order'];
-
-		// check if cart contain this item
-		if($product['in_stock'] == 0){
-
-		}
 	}
 
 	if($product['in_stock'] < 5){
