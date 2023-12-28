@@ -39,6 +39,9 @@ class Dashboard extends BaseController
         $data = [
             'title' => 'Dashboard',
             'stats' => $stats,
+            'orders' => $orders,
+            'products' => $products,
+            'products' => $customers,
         ];
 
         return view('admin/dashboard', $data);
