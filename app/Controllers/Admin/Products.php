@@ -122,6 +122,7 @@ class Products extends BaseController
                     'image' => $path,
                     'publish' => $this->request->getPost('publish'),
                     'in_stock' => $this->request->getPost('in_stock'),
+                    'max_item_limit' => $this->request->getPost('max_item_limit'),
                     'category_id' => $this->request->getPost('category'),
                 ];
 
@@ -187,6 +188,7 @@ class Products extends BaseController
                 'slug' => $slug,
                 'publish' => $this->request->getPost('publish'),
                 'in_stock' => $this->request->getPost('in_stock'),
+                'max_item_limit' => $this->request->getPost('max_item_limit'),
                 'category_id' => $this->request->getPost('category'),
             ];
 
@@ -196,5 +198,12 @@ class Products extends BaseController
         }
 
         return redirect()->to($redirect)->with('success', 'Client created');
+    }
+
+    public function delete($id = null)
+    {
+        $this->productModel->delete($id);
+
+        return redirect()->to($this->request->getPost('redirect_success'));
     }
 }
