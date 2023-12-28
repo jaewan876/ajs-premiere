@@ -3,7 +3,29 @@
 <?= $this->section('content') ?>
 
 <?php  
-	$limit = 100;
+	$in_stock_msg = '';
+	$add_to_cart_disabled = '';
+	$limit = $product['in_stock'];
+
+	if($product['max_per_order'] > 0 && $product['max_per_order'] < $product['in_stock']){
+		// max amount per purchase
+		$limit = $product['max_per_order'];
+
+		// check if cart contain this item
+		if($product['in_stock'] == 0){
+
+		}
+	}
+
+	if($product['in_stock'] < 5){
+		$in_stock_msg = $product['in_stock'] . ' left in stock';
+	}
+
+	if($product['in_stock'] == 0){
+		// out of stock
+		$in_stock_msg = 'Out of stock';
+		$add_to_cart_disabled = 'disabled';
+	}
 ?>
 
 <div class="container">
@@ -27,7 +49,7 @@
 	    </div>
 	</section>
 
-	<section class="row">
+	<section class="row mb-5">
 		<div class="col">
 			<div class="row mb-5">
 				<div class="col">
@@ -42,6 +64,14 @@
 							<div class="review-ratings mb-3">
 								<i class="bi bi-star-fill"></i> <span>0 Reviews</span>
 							</div>
+
+							<?php if ($in_stock_msg): ?>
+							<div class="review-ratings mb-3">
+								<p class="text-danger">
+									<?= $in_stock_msg ?>
+								</p>
+							</div>
+							<?php endif ?>
 							
 							<div class="mb-3">
 								<h5>
@@ -66,9 +96,9 @@
 											<option value="3">3</option>
 										</select>
 										<?php else: ?>
-										<input class="" name="quantity" type="number" min="1" max="<?= ($product['in_stock'] > 0?$product['in_stock']: 100) ?>" size="1" value="1" required>
+										<input class="" name="quantity" type="number" min="1" max="<?= $limit ?>" size="1" value="1" required>
 										<?php endif ?>
-										<button class="btn btn-warning">
+										<button class="btn btn-warning" <?= $add_to_cart_disabled ?>>
 											Add to cart
 										</button>
 									</div>
