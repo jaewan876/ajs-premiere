@@ -117,6 +117,8 @@ class Category extends BaseController
 
     public function delete($id = null)
     {
-        
+        $this->categoryModel->delete($id);
+
+        return redirect()->to($this->request->getPost('redirect_success'));
     }
 }
