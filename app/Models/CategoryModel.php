@@ -10,7 +10,7 @@ class CategoryModel extends Model
     protected $primaryKey       = 'category_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['category_name', 'category_description', 'category_image', 'category_slug'];
 
@@ -19,7 +19,7 @@ class CategoryModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'category_created_at';
     protected $updatedField  = 'category_updated_at';
-    // protected $deletedField  = 'deleted_at';
+    protected $deletedField  = 'category_deleted_at';
 
     // Validation
     protected $validationRules      = [];
