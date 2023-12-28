@@ -13,7 +13,13 @@
         </div>
         <div class="">
             <!-- controls -->
-            
+            <form method="post" action="<?= base_url('admin/category/delete/'.$category['category_id']) ?>">
+                <input type="hidden" name="redirect_error" value="<?= current_url() ?>">
+                <input type="hidden" name="redirect_success" value="<?= site_url('admin/category') ?>">
+                <button class="btn btn-sm btn-danger">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
+            </form>
         </div>
     </div>
 
