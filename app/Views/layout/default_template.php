@@ -13,7 +13,7 @@
 <body>
 	<div class="d-flex flex-column min-vh-100">
 		<header class="sticky-top">
-            <div class="d-flex justify-content-between align-items-center bg-white">
+            <div class="d-flex justify-content-between align-items-center" style="background-color: #5AB9EA;">
                 <div class="p-1">
                     <img src="<?= site_url('assets/images/static/logo.png') ?>" width="250">
                 </div>
