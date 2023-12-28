@@ -70,7 +70,7 @@
 							
 							<div class="mb-3">
 								<h5>
-									<span>$<?= $product['price'] ?></span>
+									<span><?= number_to_currency($product['price'], 'USD', 'en_US', 2) ?></span>
 								</h5>
 							</div>
 
