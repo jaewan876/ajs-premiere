@@ -17,6 +17,8 @@ init_cart();
 
 function init_cart()
 {
+
+    console.log('site url', SITE_URL)
 	getItems()
 	updateItem()
 }
@@ -46,7 +48,7 @@ function updateItem(){
 
 async function getItems()
 {
-	const url = window.location.origin + '/cart/items'
+	const url = SITE_URL + 'cart/items'
 	const response = await fetch(url);
     const data = await response.json();
 
