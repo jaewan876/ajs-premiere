@@ -57,6 +57,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
 		$routes->get('add', 'category::add');
 		$routes->get('edit/(:num)', 'category::edit/$1');
 		$routes->post('edit/(:num)', 'category::update/$1');
+		$routes->post('delete/(:num)', 'category::delete/$1');
 	});
 
 	$routes->group('products', static function ($routes) {
@@ -65,6 +66,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
 		$routes->get('add', 'Products::add');
 		$routes->get('edit/(:num)', 'Products::edit/$1');
 		$routes->post('edit/(:num)', 'Products::update/$1');
+		$routes->post('delete/(:num)', 'Products::delete/$1');
 	});
 
 	$routes->group('user', static function ($routes) {
