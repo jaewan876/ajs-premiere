@@ -83,22 +83,14 @@
                 <div class="row g-3 mb-3">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="form-label">SKU</label>
+                            <label class="form-label" for="">SKU</label>
                             <input class="form-control" type="text" name="sku">
                         </div>
                     </div>
-                </div>
-                <div class="row g-3 mb-3">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="form-label">In Stock</label>
+                            <label class="form-label" for="start_date">In Stock</label>
                             <input type="number" class="form-control" name="in_stock" min="0" max="100" value="0">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="form-label">Max limit per order</label>
-                            <input type="number" class="form-control" name="max_item_limit" min="0" max="100" value="0">
                         </div>
                     </div>
                 </div>
