@@ -92,6 +92,46 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <h5>Orders</h5>
+            <table class="table">
+                <th>ID</th>
+                <th>Status</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Updated</th>
+                <th></th>
+                <tbody>
+                    <?php if (!empty($orders)): ?>
+                        <?php foreach ($orders as $key => $value): ?>
+                        <tr>
+                            <td><?= '#'.$value['order_id'] ?></td>
+                            <td>
+                                <span class="badge bg-light text-dark"><?= $value['order_status'] ?></span>
+                            </td>
+                            <td><?= $value['order_quantity'] ?></td>
+                            <td><?= number_to_currency($value['order_total'], 'USD', 'en_US', 2) ?></td>
+                            <td><?= date('M d, Y', strtotime($value['order_updated_at'])) ?></td>
+                            <td>
+                                <a class="btn btn-sm btn-ligh" href="<?= base_url('admin/orders/'.$value['order_id']) ?>">
+                                    <i class="bi bi-pencil-square"></i> View
+                                </a>
+                            </td>
+                        </tr>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="6">
+                                <p class="text-center py-2">No result found</p>
+                            </td>
+                        </tr>
+                    <?php endif ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection() ?>
