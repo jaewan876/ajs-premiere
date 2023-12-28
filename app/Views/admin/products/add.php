@@ -98,7 +98,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="form-label">Max limit per order</label>
-                            <input type="number" class="form-control" name="max_item_limit" min="0" max="100">
+                            <input type="number" class="form-control" name="max_item_limit" min="0" max="100" value="0">
                         </div>
                     </div>
                 </div>
