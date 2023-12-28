@@ -202,7 +202,19 @@ class Products extends BaseController
 
     public function delete($id = null)
     {
-        $this->productModel->delete($id);
+        $item = $this->productModel->find($id);
+
+        if ($item) {
+            // print_r($item);
+
+            if (!empty($item['image'])) {
+                // unlink(base_url($item['image']));
+
+                echo "delete image";
+            }
+
+            $this->productModel->delete($id);
+        }
 
         return redirect()->to($this->request->getPost('redirect_success'));
     }
